@@ -18,5 +18,5 @@ This is a vue dialog plugin for ES5.
 ```
 
 ## Run screenshot
-![1](./img/1.jpg)
-![2](./img/2.jpg)
+![1](https://github.com/nocpp/pconfirm/raw/master/img/1.jpg)
+![1](https://github.com/nocpp/pconfirm/raw/master/img/2.jpg)
