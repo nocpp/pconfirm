@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1,user-scalable=no" />
+		<title>插件</title>
+        <link rel="stylesheet" type="text/css" href="./src/pconfirm.css"/>
+	</head>
+	<body>
+        <div id="app">
+            <button type="button" @click="success">成功</button>
+            <button type="button" @click="fail">失败</button>
+        </div>
+	</body>
+    <script src="vue.min.js" type="text/javascript" charset="utf-8"></script>
+    <script src="./src/pconfirm.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        /*
+        * rem适配
+        */
+         (function () {
+            var styleNode = document.createElement('style');
+            var w = (document.documentElement.clientWidth / 750) * 100;
+            styleNode.innerHTML = 'html {font-size: ' + w + 'px !important}';
+            document.head.appendChild(styleNode);
+        })();
+        
+        Vue.use(Pconfirm);
+        
+        var app = new Vue({
+            el: '#app',
+            
+            data: {
+                
+            },
+            
+            methods: {
+                success: function() {
+                    Pconfirm.show({
+                      icon: "./img/qt6.png",
+                      desc: "提交成功"
+                    });
+                },
+                
+                fail: function() {
+                    Pconfirm.show({
+                      icon: "./img/qt5.png",
+                      desc: "提交失败，请重试",
+                      cancelShow: true,
+                      autoDisappear: false,
+                      sure: function() {
+                          console.log("点击了确定");
+                      },
+                      cancel: function() {
+                          console.log("点击了取消");
+                      }
+                    });
+                }
+            }
+        });
+    </script>
+</html>
